@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">BakingOnClick</string>
+    <string name="action_settings">Settings</string>
+    <string name="error_message">The items could not be loaded at this time, please try again later.</string>
+    <string name="msg_no_recipes">There are no recipes to show.</string>
+    <string name="title_recipe_list">Recipes</string>
+    <string name="title_recipe_detail">Recipe Detail</string>
+    <string name="detail_error_message">Some error has occurred. Please try again.</string>
+    <string name="AppName">BakingOnClick</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="things_you_need">Things you need</string>
+</resources>
