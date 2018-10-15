@@ -11,4 +11,7 @@
     <string name="next">Next</string>
     <string name="ingredients">Ingredients</string>
     <string name="things_you_need">Things you need</string>
+    <string name="appwidget_text">Pick a Recipe</string>
+    <string name="add_widget">Add widget</string>
+    <string name="BakingOnClick">BakingOnClick</string>
 </resources>

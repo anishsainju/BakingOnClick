@@ -38,17 +38,6 @@ public class RecipeDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_detail);
         btn_previous = findViewById(R.id.btn_previous);
         btn_next = findViewById(R.id.btn_next);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-//        setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();
@@ -69,7 +58,6 @@ public class RecipeDetailActivity extends AppCompatActivity {
         ingreStepArrayList = bundle.getParcelableArrayList(ARG_INGRESTEPLIST);
         if (savedInstanceState == null) {
             ingreStepPos = bundle.getInt(ARG_INGRESTEPPOS);
-//            ingreStep = ingreStepArrayList.get(ingreStepPos);
 
             handlePrevNextBtnVisibility(ingreStepPos);
             RecipeDetailFragment fragment = new RecipeDetailFragment();

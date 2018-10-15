@@ -90,10 +90,8 @@ public class RecipeDetailFragment extends Fragment {
                     case IngreStep.VIEW_TYPE_INGREDIENT:
                         rootView = inflater.inflate(R.layout.recipe_detail_ingredients, container, false);
                         ((TextView) rootView.findViewById(R.id.ingredient_detail)).setText(R.string.things_you_need);
-//                        ((TextView) rootView.findViewById(R.id.ingredient_detail)).setText(ingreStep.getIngredientList().get(0).toString());
                         ListView listView = rootView.findViewById(R.id.listview_ingredients);
                         IngredientArrayAdaper ingredientArrayAdaper = new IngredientArrayAdaper(getContext(), ingreStep.getIngredientList());
-//                        ArrayAdapter<Ingredient> ingredientArrayAdaper = new ArrayAdapter<Ingredient>(getContext(), R.layout.ingredient_item, ingreStep.getIngredientList());
                         listView.setAdapter(ingredientArrayAdaper);
                         break;
                     case IngreStep.VIEW_TYPE_STEP:
@@ -134,7 +132,7 @@ public class RecipeDetailFragment extends Fragment {
             mExoPlayer = ExoPlayerFactory.newSimpleInstance(this.getContext(), trackSelector, loadControl);
             mPlayerView.setPlayer(mExoPlayer);
             // Prepare the MediaSource.
-            String userAgent = Util.getUserAgent(this.getContext(), "BakingOnClick");
+            String userAgent = Util.getUserAgent(this.getContext(), getString(R.string.BakingOnClick));
             MediaSource mediaSource = new ExtractorMediaSource(mediaUri, new DefaultDataSourceFactory(
                     this.getContext(), userAgent), new DefaultExtractorsFactory(), null, null);
             mExoPlayer.prepare(mediaSource);

@@ -38,10 +38,6 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
     @Override
     public void onBindViewHolder(RecipeCardAdapterViewHolder holder, int position) {
         Recipe selectedRecipe = mRecipesData.get(position);
-//        Picasso.with(context)
-//                .load(selectedRecipe.getImage())
-//                .placeholder(R.drawable.ic_no_image)
-//                .into(holder.mImageView);
         holder.mTextView.setText(selectedRecipe.getName());
     }
 
@@ -62,7 +58,6 @@ public class RecipeCardAdapter extends RecyclerView.Adapter<RecipeCardAdapter.Re
     }
 
     public class RecipeCardAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        //        final ImageView mImageView;
         final TextView mTextView;
 
         RecipeCardAdapterViewHolder(View view) {

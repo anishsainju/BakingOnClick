@@ -106,31 +106,4 @@ public class MultiViewItemTypeViewAdapter extends RecyclerView.Adapter {
             shortDescTextview = itemView.findViewById(R.id.content);
         }
     }
-/*
-    private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-//                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
-            IngreStep selectedIngreStep = (IngreStep) view.getTag();
-//            System.out.println("ViewType: " + String.valueOf(selectedIngreStep.getViewType()));
-//            System.out.println("desc: " + selectedIngreStep.getShortDescription());
-//            System.out.println("videoURL: " + selectedIngreStep.getVideoURL());
-            if (mTwoPane) {
-                Bundle arguments = new Bundle();
-//                    arguments.putString(RecipeDetailFragment.ARG_ITEM_ID, item.id);
-                arguments.putParcelable(RecipeDetailFragment.ARG_INGRESTEP, selectedIngreStep);
-                RecipeDetailFragment fragment = new RecipeDetailFragment();
-                fragment.setArguments(arguments);
-                mParentActivity.getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.recipe_detail_container, fragment)
-                        .commit();
-            } else {
-                Context context = view.getContext();
-                Intent intent = new Intent(context, RecipeDetailActivity.class);
-                intent.putExtra(RecipeDetailFragment.ARG_INGRESTEP, selectedIngreStep);
-
-                context.startActivity(intent);
-            }
-        }
-    };*/
 }

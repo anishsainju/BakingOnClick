@@ -41,11 +41,6 @@ public class MainActivity extends AppCompatActivity implements RecipeCardAdapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        setTitle(getString(R.string.AppName));
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        toolbar.setTitle(getTitle());
 
         /*
          * Using findViewById, we get a reference to our RecyclerView from xml. This allows us to
@@ -90,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements RecipeCardAdapter
          */
         mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
 
-//        loadRecepiJson(this, "baking.json");
         mLoadingIndicator.setVisibility(View.VISIBLE);
 
         GetDataService getDataService = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
@@ -148,19 +142,6 @@ public class MainActivity extends AppCompatActivity implements RecipeCardAdapter
         mRecyclerViewRecipeCards.setVisibility(View.VISIBLE);
     }
 
-    /*
-        private void loadRecepiJson(Context context, String assetFileName) {
-            parseJsonAndShow(JsonUtils.loadJSONFromAsset(context, assetFileName));
-        }
-        private void parseJsonAndShow(String jsonMoviesResponse) {
-            try {
-                recipeList = JsonUtils.parseRecipeJson(jsonMoviesResponse);
-                showRecipes(recipeList);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                showErrorMessage();
-            }
-        }*/
     private void showRecipes(List<Recipe> recipesToShow) {
         if (recipesToShow.isEmpty()) {
             mErrorMessageDisplay.setText(R.string.msg_no_recipes);
@@ -197,7 +178,13 @@ public class MainActivity extends AppCompatActivity implements RecipeCardAdapter
     @Override
     public void onClick(int position) {
         Intent startRecipeActivity = new Intent(this, RecipeListActivity.class);
-        Recipe selectedRecipe = recipeList.get(position);
+        final Recipe selectedRecipe = recipeList.get(position);
+        MainActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                BakingWidgetProvider.sendRefreshBroadcast(getApplicationContext(), selectedRecipe);
+            }
+        });
         startRecipeActivity.putExtra(RecipeListActivity.RECIPE, selectedRecipe);
         startActivity(startRecipeActivity);
     }
